@@ -18,7 +18,7 @@
             <label>Username: </label>
             <input type="text" name="username" value="${username}">
             <label>Password:</label>
-            <input type="password" name="userPass" value="${userPass}">
+            <input type="password" name="password" value="${password}">
             <p>${message}</p>
             <input type="submit" value="Login">
         </form>
