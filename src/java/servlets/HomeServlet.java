@@ -23,6 +23,11 @@ public class HomeServlet extends HttpServlet {
     
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        request.getRequestDispatcher("/WEB-INF/login.jsp").include(request, response);
+        HttpSession session = request.getSession();
+        request.setAttribute("message", "You have successfullt logged out");
+        
   
      
     } 

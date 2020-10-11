@@ -5,6 +5,7 @@
  */
 package Class;
 
+import servlets.User;
 import java.beans.*;
 import java.io.Serializable;
 
@@ -14,10 +15,16 @@ import java.io.Serializable;
  */
 public class AccountService implements Serializable {
     
-  public User Login(String username, String password) {
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    public User login (String username, String password) {
       
       if((username.equals("adam") || username.equals("betty")) && password.equals("password")) {
-          return new User (username, null);
+          return new User(username, null);
       }
       return null;
   }
