@@ -5,7 +5,7 @@
  */
 package Class;
 
-import servlets.User;
+
 import java.beans.*;
 import java.io.Serializable;
 
@@ -28,5 +28,15 @@ public class AccountService implements Serializable {
       }
       return null;
   }
+
+    private static class User {
+
+        public User() {
+        }
+
+        private User(String username, Object object) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+    }
     
 }

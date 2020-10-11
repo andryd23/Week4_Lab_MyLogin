@@ -74,7 +74,7 @@ public class LoginServlet extends HttpServlet {
             
              AccountService as = new AccountService();
              
-             User userObj = as.login(username, password);
+            
              
              
           }

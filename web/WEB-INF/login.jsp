@@ -20,7 +20,7 @@
             <label>Password:</label>
             <input type="password" name="password" value="${password}" >
             <div>${message}</div>
-            <input type="submit" value="Login">
+            <input type="submit" name="login" value="Login">
         </form>
             
     </body>
