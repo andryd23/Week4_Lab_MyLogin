@@ -14,7 +14,7 @@
     <servlet-class>servlets.LoginServlet</servlet-class>
 </servlet>
 <servlet-mapping>
-    <servlet-class>LoginServlet</servlet-class>
+    <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
 </servlet-mapping>
 <session-config>

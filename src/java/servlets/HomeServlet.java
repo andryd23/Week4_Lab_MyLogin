@@ -23,13 +23,8 @@ public class HomeServlet extends HttpServlet {
     
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
-        
-        HttpSession session = request.getSession();
-        session.invalidate();
-        
-        response.sendRedirect("login.jsp");
-        
+  
+     
     } 
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

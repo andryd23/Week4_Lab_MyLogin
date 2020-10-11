@@ -23,57 +23,50 @@ import javax.servlet.http.*;
 public class LoginServlet extends HttpServlet {
       
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //create the session
-        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        HttpSession session = request.getSession();
-        
-        if(username == null || password == null || username.equals("") || password.equals("")) {
-            request.setAttribute("message", "I'm sorry but you can't have empty cases");
-            getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-            
-        }
-        
-        
-        
-        if(username.equals("adam") || username.equals("betty") && password.equals("password") ) {
-             session.setAttribute("username", username);
-             session = request.getSession(false);
-             if(session != null) {
-             response.sendRedirect("home.jsp");
-             } else {
-                 
-             }
-        }
-        
-        else {
-            request.setAttribute("message","Invalid Login");
-            response.sendRedirect("login.jsp");
-            
-        }
-        
-        
-       
-        
-      
-        
-        
-         
-        
         
         getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-    }
+        
+        
+    }  
+        
+        
+        
+    
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
         
-     getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-     
-     
+        request.setAttribute("username", username);
+        request.setAttribute("password", password);
+        
+       
+        if(username == null || username.equals("") || password.equals("") || password == null) {
+            
+            request.setAttribute("message", "Invalid Login you can't have empty cases");
+            getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+            return;
+            
+        }
+        
+        else if(username.equals("adam") || username.equals("betty") && password.equals("password")) {
+             HttpSession session = request.getSession();
+             request.setAttribute("username", username);
+             request.getRequestDispatcher("/WEB-INF/home.login");
+             
+          }
     }
+    
+    
+    
+    } 
+    
+    
+     
+   
 
    
 
 
-}
+
