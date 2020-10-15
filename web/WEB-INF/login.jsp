@@ -1,8 +1,4 @@
-<%-- 
-    Document   : login
-    Created on : Oct 8, 2020, 4:36:04 PM
-    Author     : 832465
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
