@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.*;
+import Class.User;
 
 /**
  *
@@ -26,8 +26,6 @@ public class LoginServlet extends HttpServlet {
     
       
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         HttpSession session = request.getSession();
         
         if(request.getParameter("logout") != null) {
@@ -37,6 +35,10 @@ public class LoginServlet extends HttpServlet {
         }
         else if(session.getAttribute("username") != null) {
             response.sendRedirect(request.getContextPath() + "/home");
+        }
+        
+        else {
+            getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
         
         
@@ -49,10 +51,10 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        
+        String password = request.getParameter("password"); 
         request.setAttribute("username", username);
         request.setAttribute("password", password);
+        User user = null;
         
         
        
@@ -69,10 +71,12 @@ public class LoginServlet extends HttpServlet {
             
              HttpSession session = request.getSession();
              session.setAttribute("username", username);
+             session.setAttribute("password", password);
              request.getRequestDispatcher("/WEB-INF/home.login");
              response.sendRedirect(request.getContextPath() + "/home");
-            
-             AccountService aservice = new AccountService();    
+             AccountService ac = new AccountService();
+             user = ac.login(username, password);
+              
              
           }
         

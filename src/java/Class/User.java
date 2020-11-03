@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlets;
+package Class;
 
 /**
  *
  * @author 832465
  */
-class User {
+public class User {
     
     String username;
     String password;
@@ -21,6 +21,7 @@ class User {
         
     }
 
+   
   
 
    public void setUsername(String username) {

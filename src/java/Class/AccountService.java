@@ -17,28 +17,15 @@ public class AccountService implements Serializable {
 
 
     
-    /**
-     *
-     * @param username
-     * @param password
-     * @return
-     */
+  
     public User login (String username, String password) {
       
       if((username.equals("adam") || username.equals("betty")) && password.equals("password")) {
-          return new User(username, null);
+          User user = new User(username, password);
+          return user;
       }
       return null;
   }
 
-    private static class User {
-
-        public User() {
-        }
-
-        private User(String username, Object object) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-    }
     
 }
